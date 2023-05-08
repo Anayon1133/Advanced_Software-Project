@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>{{ country }} Sentiment</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 class="mb-4">{{ country }} Sentiment Analysis</h1>
+    <h2 class="mb-3">Positive Words</h2>
+    <ul>
+        {% for word in top_positive_words %}
+            <li>{{ word }}</li>
+        {% endfor %}
+    </ul>
+    <h2 class="mb-3">Negative Words</h2>
+    <ul>
+        {% for word in top_negative_words %}
+            <li>{{ word }}</li>
+        {% endfor %}
+    </ul>
+    <h2 class="mb-3">Sentiment Score</h2>
+<p>{{ sentiment_data.sentiment_score }}</p>
+
+<h2 class="mb-3">Wordcloud</h2>
+<img src="{{ wordcloud_path }}" alt="Wordcloud for {{ country }}">
+
+<br><br>
+<a href="/">Go to Home Page</a>
+
+</div>
+</body>
+</html>
